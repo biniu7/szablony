@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>IGNORED</title>
+    </head>
+    <body>
+        <ui:composition> 
+            <h:form>  
+                <p:toolbar>  
+                    <p:toolbarGroup align="left"> 
+                        <p:commandButton   value="#{msgs.newCard}" action="#{changePage.centerSections('newCard')}" >
+                            <p:ajax update=":panelCenter" />
+                        </p:commandButton>  
+                        <p:commandButton  update=":panelCenter" value="#{msgs.changeIn}" action="#{changePage.centerSections('changeIn')}" /> 
+                        <p:separator />  
+                    </p:toolbarGroup> 
+                    <p:toolbarGroup align="right">
+                        <p:commandLink  ajax="false" title="Polski" action="#{user.changeLocale('pl')}">
+                        <h:graphicImage library="images" name="pl.gif"
+                                        style="border: 0px; margin-right: 1em;"/>
+                    </p:commandLink>
+                    <p:commandLink ajax="false" title="English" action="#{user.changeLocale('en')}"> 
+                        <h:graphicImage library="images" name="gb.gif" style="border: 0px"/>
+                    </p:commandLink> 
+                    <p:commandLink ajax="false" title="Français" action="#{user.changeLocale('fr')}"> 
+                        <h:graphicImage library="images" name="fr.gif" style="border: 0px"/>
+                    </p:commandLink>
+                    </p:toolbarGroup>
+                    <p:toolbarGroup align="right">
+                        <p:themeSwitcher value="#{themeSwitcherBean.theme}" style="width:155px" effect="fade">
+                            <f:selectItem itemLabel="#{msgs.ChooseTheme}" itemValue="" />
+                            <f:selectItems value="#{themeSwitcherBean.themes}" />
+                            <p:ajax listener="#{themeSwitcherBean.saveTheme}" />
+                        </p:themeSwitcher>
+                    </p:toolbarGroup>
+                    <p:separator />  
+                    <p:toolbarGroup align="right">  
+                        <p:menuButton value="#{msgs.Options}">  
+                            <p:menuitem value="#{msgs.help}"  />  
+                            <p:menuitem value="#{msgs.about}"  />   
+                        </p:menuButton> 
+                    </p:toolbarGroup>
+
+
+                </p:toolbar>  
+            </h:form>   
+        </ui:composition>
+    </body>
+</html>

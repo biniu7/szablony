@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>IGNORED</title>
+    </head>
+    <body>
+        <ui:composition> 
+            <div id="divTopLogin">
+                <h:form>
+                    <p:commandLink  ajax="false" title="Polski" action="#{user.changeLocale('pl')}">
+                        <h:graphicImage library="images" name="pl.gif"
+                                        style="border: 0px; margin-right: 1em;"/>
+                    </p:commandLink>
+                    <p:commandLink ajax="false" title="English" action="#{user.changeLocale('en')}"> 
+                        <h:graphicImage library="images" name="gb.gif" style="border: 0px"/>
+                    </p:commandLink> 
+                    <p:commandLink ajax="false" title="Français" action="#{user.changeLocale('fr')}"> 
+                        <h:graphicImage library="images" name="fr.gif" style="border: 0px"/>
+                    </p:commandLink>
+                </h:form>
+            </div>
+        </ui:composition>
+    </body>
+</html>

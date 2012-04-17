@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>IGNORED</title>
+    </head>
+    <body>
+        <ui:composition > 
+            <f:event type="preRenderView" listener="#{user.checkLogin}"/>  
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+            <div id="divLogin">  
+                <h:form>
+                <p:panelGrid columns="3">
+                    <f:facet name="header">
+                        #{msgs.login}
+                    </f:facet>
+                    <h:outputLabel for="login" value="#{msgs.loginOrAdresEmail}" />
+                    <p:inputText id="login" value="#{user.login}" label="login" />
+                    <h:outputLabel/>
+                    <h:outputLabel for="password" value="#{msgs.password}" />
+                    <p:password id="password" value="#{user.password}" label="password"/>
+                    <h:outputLabel/>
+                    <f:facet name="footer">
+                        <p:commandButton ajax="false" value="#{msgs.keyLogin}" action="#{user.keyLogin}" />
+                    </f:facet>
+                </p:panelGrid>
+                </h:form>
+                <h:form>
+                    <p:commandLink id="ajax"   style="margin-right:20px;">  
+                        <h:outputText value="#{msgs.problemWithLogging}" />  
+                    </p:commandLink> 
+                </h:form>
+            </div>
+        </ui:composition>
+    </body>
+</html>

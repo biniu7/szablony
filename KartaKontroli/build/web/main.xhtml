@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Karta Kontroli</title>
+            </f:facet>
+            <link href="#{request.contextPath}/resources/css/default.css" rel="stylesheet" type="text/css"  />
+            <link href="#{request.contextPath}/resources/css/primefaces.css" rel="stylesheet" type="text/css"  />
+            <h:outputScript library="js" name="translations.js" />
+        </h:head>
+        <h:body>
+            <p:layout id="fullPage" fullPage="true" >
+
+                <p:layoutUnit id="top" position="north" size="60">
+                    <ui:insert name="north">
+                        <ui:include src="/sections/main/top.xhtml"/>
+                    </ui:insert>  
+                </p:layoutUnit>
+
+                <p:layoutUnit id="bottom" position="south" size="25">
+                    <ui:insert name="bottom">
+                        <ui:include src="/sections/main/bottom.xhtml"/>
+                    </ui:insert>  
+                </p:layoutUnit>
+
+                <p:layoutUnit id="left" position="west" size="350" resizable="true" closable="true" collapsible="true" header="Left" minSize="250">
+                    <ui:insert name="west">
+                        <ui:include src="/sections/main/left.xhtml"/>
+                    </ui:insert>  
+                </p:layoutUnit>
+
+                <p:layoutUnit id="right" position="east" size="250" resizable="true" closable="true" collapsible="true" header="Rght" minSize="200">
+                    <ui:insert name="west">
+                        <ui:include src="/sections/main/right.xhtml"/>
+                    </ui:insert> 
+                </p:layoutUnit>
+                <p:layoutUnit id="center" position="center">
+                    <ui:insert  name="center">
+                        <p:panelGrid id="panelCenter">
+                        <ui:include src="#{changePage.centerSections}"/>
+                        </p:panelGrid>
+                    </ui:insert> 
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
+
