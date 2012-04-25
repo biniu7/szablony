@@ -1,3 +1,5 @@
+
+
 #divBootom{
     
     text-align: center;
@@ -125,6 +127,9 @@ img.right {
         height: 30px;
         margin-left: 10px;
         padding: 8px 0 0 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .title a {

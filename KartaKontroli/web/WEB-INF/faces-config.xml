@@ -26,8 +26,8 @@
    </navigation-rule>
    <application>
         <resource-bundle>
-            <base-name>pl.biniu.msgs.messages</base-name>
-            <var>msgs</var>
+            <base-name>pl.biniu.megs.messages</base-name>
+            <var>megs</var>
         </resource-bundle>
     </application>
     <managed-bean>
@@ -52,6 +52,17 @@
     <managed-bean>
         <managed-bean-name>changePage</managed-bean-name>
         <managed-bean-class>pl.biniu.ChangePageBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>newCard</managed-bean-name>
+        <managed-bean-class>pl.biniu.newCard.InputNewCard</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>patter</managed-bean-name>
+        <managed-bean-class>pl.biniu.PatterMBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 </faces-config>

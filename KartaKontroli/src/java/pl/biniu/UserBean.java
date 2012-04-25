@@ -11,7 +11,7 @@ public class UserBean implements Serializable {
    private int a =0;  
    private String login ="";
    private String password ="" ;
-   private String locale = "en";
+   private String locale ="pl" ;
 public UserBean(){}
 
     public String getLogin() {
@@ -31,6 +31,10 @@ public UserBean(){}
     }
 
     public String getLocale() {
+        FacesContext context = FacesContext.getCurrentInstance();
+   String loc = context.getViewRoot().getLocale().toString();
+   if(loc.equals("pl_PL"))locale="pl";
+   else locale = loc;
         return locale;
     }
 
@@ -53,5 +57,6 @@ public UserBean(){}
      setLocale(languageCode);
       return null;
    }
+   
       
 }

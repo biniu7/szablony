@@ -16,6 +16,7 @@ public class ChangePageBean implements Serializable {
         this.centerSections = "/sections/"+centerSections+"/center.xhtml";
     }
 
+   public void action(){}
    
     
 }

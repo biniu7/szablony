@@ -2,13 +2,189 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <head>
         <title>IGNORED</title>
     </head>
     <body>
-        <ui:composition> 
-          karta 2
-        </ui:composition>
+        <ui:component> 
+            <p:fieldset legend="#{megs.newCard}" toggleable="true" toggleSpeed="500">
+                <h:panelGrid columns="3" >
+
+                    <h:outputLabel for="customerOrderNumber" value="#{megs.customerOrderNumber}"/>
+                    <p:inputMask id="customerOrderNumber" value="#{newCard.orderNumber}"  mask="999-99-9999" styleClass="inputText" >
+                        <f:validateRegex pattern="#{patter.orderNumber}" for="customerOrderNumber"/>
+                    </p:inputMask>
+                    <p:message for="customerOrderNumber"/>
+
+                    <h:outputLabel for="processingPerson" value="#{megs.processingPerson}"/>
+                    <p:selectOneMenu id="processingPerson"  value="#{newCard.processingPerson}" styleClass="selectOneMenu" >
+                        <f:selectItems value="#{newCard.personaList}"  var="persona" itemValue="#{persona}" itemLabel="#{persona}" />
+                    </p:selectOneMenu>
+                    <p:message for="processingPerson"/>
+
+                    <h:outputLabel for="customer" value="#{megs.customer}"/>
+                    <p:selectOneMenu id="customer"  value="#{newCard.customer}" styleClass="selectOneMenu" >
+                        <f:selectItems value="#{newCard.customerList}"  var="customer" itemValue="#{customer}" itemLabel="#{customer}" />
+                    </p:selectOneMenu>
+                    <p:message for="customer"/> 
+
+                    <h:outputLabel for="orderedBy" value="#{megs.orderedBy}"/>
+                    <p:selectOneMenu id="orderedBy"  value="#{newCard.orderedBy}" styleClass="selectOneMenu" >
+                        <f:selectItems value="#{newCard.orderedByList}"  var="orderedBy" itemValue="#{orderedBy}" itemLabel="#{orderedBy}" />
+                    </p:selectOneMenu>
+                    <p:message for="orderedBy"/>
+
+                    <h:outputLabel for="producer" value="#{megs.producer}"/>
+                    <p:selectOneMenu id="producer"  value="#{newCard.producer}" styleClass="selectOneMenu" >
+                        <f:selectItems value="#{newCard.producerList}"  var="producer" itemValue="#{producer}" itemLabel="#{producer}" />
+                    </p:selectOneMenu>
+                    <p:message for="producer"/> 
+
+                    <h:outputLabel for="orderDate" value="#{megs.orderDate}"/>
+                    <p:calendar id="orderDate" effect="slideDown" pattern="dd/MM/yyyy" value="#{newCard.orderDate}"  
+                                showButtonPanel="true"  locale="#{user.locale}"  styleClass="inputText" />
+                    <p:message for="orderDate"/> 
+
+                    <h:outputLabel for="orderHour" value="#{megs.orderHour}"/>
+                    <p:calendar id="orderHour"  pattern="HH:mm" value="#{newCard.orderDate}"  
+                                timeOnly="true" locale="#{user.locale}"  styleClass="inputText" />
+                    <p:message for="orderHour"/> 
+
+                    <h:outputLabel for="requestedDispatchDate" value="#{megs.requestedDispatchDate}"/>
+                    <p:calendar id="requestedDispatchDate" effect="slideDown" pattern="dd/MM/yyyy" value="#{newCard.requestedDispatchDate}"  
+                                showButtonPanel="true"  locale="#{user.locale}"  styleClass="inputText" />
+                    <p:message for="requestedDispatchDate"/> 
+
+                    <h:outputLabel for="controlStartedAt" value="#{megs.controlStartedAt}"/>
+                    <p:calendar id="controlStartedAt" effect="slideDown" pattern="dd/MM/yyyy  HH:mm" value="#{newCard.orderDate}"  
+                                showButtonPanel="true"  locale="#{user.locale}"  styleClass="inputText" />
+                    <p:message for="controlStartedAt"/> 
+
+                    <h:outputLabel for="requestedCertificates" value="#{megs.requestedCertificates}"/>
+                    <p:selectCheckboxMenu id="requestedCertificates" value="#{newCard.selectRequestedCertificates}" label="#{megs.requestedCertificates}">  
+                        <f:selectItems value="#{newCard.requestedCertificates}" />  
+                    </p:selectCheckboxMenu>  
+                    <p:message for="requestedCertificates"/>
+                    <h:outputLabel/>
+                    <h:outputLabel/>
+                    <h:outputLabel/>
+                    <h:outputLabel/>
+                    <h:outputLabel value="#{megs.requestedCertificates}" styleClass="title"/>
+                    <h:outputLabel/>
+                    <h:outputLabel for="quality" value="#{megs.quality}"/>
+                    <p:selectBooleanButton id="quality" value="#{newCard.quality}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:message for="quality"/>
+
+                    <h:outputLabel for="conformity" value="#{megs.conformity}"/>
+                    <p:selectBooleanButton id="conformity" value="#{newCard.conformity}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:message for="conformity"/>
+
+                    <h:outputLabel for="origin" value="#{megs.origin}"/>
+                    <p:selectBooleanButton id="origin" value="#{newCard.origin}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:message for="origin"/>
+
+                    <h:outputLabel for="batteryTests" value="#{megs.batteryTests}"/>
+                    <p:selectBooleanButton id="batteryTests" value="#{newCard.batteryTests}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:message for="batteryTests"/>
+
+                </h:panelGrid>
+            </p:fieldset>
+            <p:fieldset toggleable="true" toggleSpeed="500">
+                <p:dataTable var="" value=""  editable="true">  
+                    <f:facet name="header">  
+                        <h:outputLabel value="nazwa tabeli"/>
+                    </f:facet>  
+
+                    <p:column headerText="#{megs.No}" style="width:20px">  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="" style="width:100%"/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+
+                    <p:column headerText="#{megs.Criteria}" style="width:50px">  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="" style="width:100%" label=""/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+
+                    <p:column headerText="#{megs.Status}" style="width:50px">  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:selectBooleanButton  value="" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>  
+
+                    <p:column headerText="#{megs.problemDescription}" style="width:70px">  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <h:selectOneMenu value="" >  
+                                    <f:selectItems value="" var="color" itemLabel="" itemValue="" />  
+                                </h:selectOneMenu>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column> 
+
+                    <p:column headerText="#{megs.remarks}" style="width:50px">  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="" style="width:100%" label=""/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+
+                    <p:column headerText="#{megs.proceededTo}" style="width:70px">  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <h:selectOneMenu value="" >  
+                                    <f:selectItems value="" var="color" itemLabel="" itemValue="" />  
+                                </h:selectOneMenu>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column> 
+
+                    <p:column headerText="#{megs.answerFromCustomer}" style="width:50px">  
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="" style="width:100%" label=""/>  
+                            </f:facet>  
+                        </p:cellEditor>  
+                    </p:column>
+
+                    <p:column headerText="Options" style="width:50px">  
+                        <p:rowEditor />  
+                    </p:column>  
+
+                </p:dataTable>  
+            </p:fieldset>
+        </ui:component>
     </body>
 </html>

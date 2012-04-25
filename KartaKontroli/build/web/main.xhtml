@@ -20,36 +20,27 @@
         <h:body>
             <p:layout id="fullPage" fullPage="true" >
 
-                <p:layoutUnit id="top" position="north" size="60">
-                    <ui:insert name="north">
-                        <ui:include src="/sections/main/top.xhtml"/>
-                    </ui:insert>  
-                </p:layoutUnit>
-
                 <p:layoutUnit id="bottom" position="south" size="25">
-                    <ui:insert name="bottom">
                         <ui:include src="/sections/main/bottom.xhtml"/>
-                    </ui:insert>  
                 </p:layoutUnit>
 
-                <p:layoutUnit id="left" position="west" size="350" resizable="true" closable="true" collapsible="true" header="Left" minSize="250">
-                    <ui:insert name="west">
-                        <ui:include src="/sections/main/left.xhtml"/>
-                    </ui:insert>  
+                <p:layoutUnit id="left" position="west" size="300" resizable="true" closable="true" collapsible="true" header="#{megs.left}" minSize="250">
+                        <ui:include src="/sections/main/left.xhtml"/> 
                 </p:layoutUnit>
 
-                <p:layoutUnit id="right" position="east" size="250" resizable="true" closable="true" collapsible="true" header="Rght" minSize="200">
-                    <ui:insert name="west">
-                        <ui:include src="/sections/main/right.xhtml"/>
-                    </ui:insert> 
+                <p:layoutUnit id="right" position="east" size="250" resizable="true" closable="true" collapsible="true" header="#{megs.right}" minSize="200" rendered="false">
+                        <ui:include src="/sections/main/right.xhtml"/> 
                 </p:layoutUnit>
+                <p:layoutUnit id="top" position="north" size="60">
+                        <ui:include src="/sections/main/top.xhtml"/> 
+                </p:layoutUnit>
+                <h:form id="formCenter">
                 <p:layoutUnit id="center" position="center">
-                    <ui:insert  name="center">
-                        <p:panelGrid id="panelCenter">
+                    <h:panelGroup id="pgCenter" layout="block"  >
                         <ui:include src="#{changePage.centerSections}"/>
-                        </p:panelGrid>
-                    </ui:insert> 
+                    </h:panelGroup>
                 </p:layoutUnit>
+                </h:form>
             </p:layout>
         </h:body>
     </f:view>

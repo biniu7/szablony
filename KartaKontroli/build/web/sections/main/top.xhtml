@@ -10,13 +10,15 @@
     </head>
     <body>
         <ui:composition> 
-            <h:form>  
+            <h:form>
                 <p:toolbar>  
                     <p:toolbarGroup align="left"> 
-                        <p:commandButton   value="#{msgs.newCard}" action="#{changePage.centerSections('newCard')}" >
-                            <p:ajax update=":panelCenter" />
-                        </p:commandButton>  
-                        <p:commandButton  update=":panelCenter" value="#{msgs.changeIn}" action="#{changePage.centerSections('changeIn')}" /> 
+                        <p:commandButton  type="submit"   value="#{megs.newCard}" update=":formCenter:pgCenter" >
+                            <f:setPropertyActionListener target="#{changePage.centerSections}"  value="newCard" />                            
+                        </p:commandButton>
+                        <p:commandButton  type="submit"   value="#{megs.changeIn}"  action="#{changePage.action}" update=":formCenter:pgCenter" >
+                            <f:setPropertyActionListener target="#{changePage.centerSections}" value="changeIn"/>                          
+                        </p:commandButton>
                         <p:separator />  
                     </p:toolbarGroup> 
                     <p:toolbarGroup align="right">
@@ -33,22 +35,20 @@
                     </p:toolbarGroup>
                     <p:toolbarGroup align="right">
                         <p:themeSwitcher value="#{themeSwitcherBean.theme}" style="width:155px" effect="fade">
-                            <f:selectItem itemLabel="#{msgs.ChooseTheme}" itemValue="" />
+                            <f:selectItem itemLabel="#{megs.ChooseTheme}" itemValue="" />
                             <f:selectItems value="#{themeSwitcherBean.themes}" />
                             <p:ajax listener="#{themeSwitcherBean.saveTheme}" />
                         </p:themeSwitcher>
                     </p:toolbarGroup>
                     <p:separator />  
                     <p:toolbarGroup align="right">  
-                        <p:menuButton value="#{msgs.Options}">  
-                            <p:menuitem value="#{msgs.help}"  />  
-                            <p:menuitem value="#{msgs.about}"  />   
+                        <p:menuButton value="#{megs.Options}">  
+                            <p:menuitem value="#{megs.help}"  />  
+                            <p:menuitem value="#{megs.about}"  />   
                         </p:menuButton> 
                     </p:toolbarGroup>
-
-
-                </p:toolbar>  
-            </h:form>   
+                </p:toolbar>
+            </h:form>
         </ui:composition>
     </body>
 </html>
