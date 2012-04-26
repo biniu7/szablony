@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <head>
         <title>IGNORED</title>
     </head>
@@ -75,113 +76,61 @@
                     <h:outputLabel value="#{megs.requestedCertificates}" styleClass="title"/>
                     <h:outputLabel/>
                     <h:outputLabel for="quality" value="#{megs.quality}"/>
-                    <p:selectBooleanButton id="quality" value="#{newCard.quality}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:selectBooleanButton id="quality" value="#{newCard.quality}" onLabel="#{megs.Yes}" offLabel="#{megs.No}" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
                     <p:message for="quality"/>
 
                     <h:outputLabel for="conformity" value="#{megs.conformity}"/>
-                    <p:selectBooleanButton id="conformity" value="#{newCard.conformity}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:selectBooleanButton id="conformity" value="#{newCard.conformity}" onLabel="#{megs.Yes}" offLabel="#{megs.No}" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
                     <p:message for="conformity"/>
 
                     <h:outputLabel for="origin" value="#{megs.origin}"/>
-                    <p:selectBooleanButton id="origin" value="#{newCard.origin}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:selectBooleanButton id="origin" value="#{newCard.origin}" onLabel="#{megs.Yes}" offLabel="#{megs.No}" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
                     <p:message for="origin"/>
 
                     <h:outputLabel for="batteryTests" value="#{megs.batteryTests}"/>
-                    <p:selectBooleanButton id="batteryTests" value="#{newCard.batteryTests}" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
+                    <p:selectBooleanButton id="batteryTests" value="#{newCard.batteryTests}" onLabel="#{megs.Yes}" offLabel="#{megs.No}" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
                     <p:message for="batteryTests"/>
 
                 </h:panelGrid>
             </p:fieldset>
             <p:fieldset toggleable="true" toggleSpeed="500">
-                <p:dataTable var="" value=""  editable="true">  
+                <p:dataTable var="rowtable" value="#{btable.tableDate}"  >  
                     <f:facet name="header">  
                         <h:outputLabel value="nazwa tabeli"/>
                     </f:facet>  
 
-                    <p:column headerText="#{megs.No}" style="width:20px">  
-                        <p:cellEditor>  
-                            <f:facet name="output">  
-                                <h:outputText value="" />  
-                            </f:facet>  
-                            <f:facet name="input">  
-                                <p:inputText value="" style="width:100%"/>  
-                            </f:facet>  
-                        </p:cellEditor>  
+                    <p:column headerText="#{megs.No_}" style="width: 10px" >   
+                        <h:outputText value="#{rowtable.no}" />  
                     </p:column>  
 
-                    <p:column headerText="#{megs.Criteria}" style="width:50px">  
-                        <p:cellEditor>  
-                            <f:facet name="output">  
-                                <h:outputText value="" />  
-                            </f:facet>  
-                            <f:facet name="input">  
-                                <p:inputText value="" style="width:100%" label=""/>  
-                            </f:facet>  
-                        </p:cellEditor>  
+                    <p:column headerText="#{megs.Criteria}">  
+                                <h:outputText value="#{rowtable.criteria}" />    
                     </p:column>  
 
-                    <p:column headerText="#{megs.Status}" style="width:50px">  
-                        <p:cellEditor>  
-                            <f:facet name="output">  
-                                <h:outputText value="" />  
-                            </f:facet>  
-                            <f:facet name="input">  
-                                <p:selectBooleanButton  value="" onLabel="Yes" offLabel="No" onIcon="ui-icon-check" offIcon="ui-icon-close"/>
-                            </f:facet>  
-                        </p:cellEditor>  
+                    <p:column headerText="#{megs.Status}" style="width: 15px" >  
+                        <c:if test="#{!rowtable.status}">        
+                            <h:outputText value="#{megs.Yes}" />
+                        </c:if>
+                        <c:if test="#{rowtable.status}">
+                            <h:outputText value="#{megs.No}"/>
+                        </c:if>
                     </p:column>  
 
-                    <p:column headerText="#{megs.problemDescription}" style="width:70px">  
-                        <p:cellEditor>  
-                            <f:facet name="output">  
-                                <h:outputText value="" />  
-                            </f:facet>  
-                            <f:facet name="input">  
-                                <h:selectOneMenu value="" >  
-                                    <f:selectItems value="" var="color" itemLabel="" itemValue="" />  
-                                </h:selectOneMenu>  
-                            </f:facet>  
-                        </p:cellEditor>  
+                    <p:column headerText="#{megs.problemDescription}" style="width:70px">   
+                                <h:outputText value="#{rowtable.problem}"  />   
                     </p:column> 
 
-                    <p:column headerText="#{megs.remarks}" style="width:50px">  
-                        <p:cellEditor>  
-                            <f:facet name="output">  
-                                <h:outputText value="" />  
-                            </f:facet>  
-                            <f:facet name="input">  
-                                <p:inputText value="" style="width:100%" label=""/>  
-                            </f:facet>  
-                        </p:cellEditor>  
+                    <p:column headerText="#{megs.remarks}" >  
+                                <h:outputText value="#{rowtable.remarks}"  />      
                     </p:column>
 
-                    <p:column headerText="#{megs.proceededTo}" style="width:70px">  
-                        <p:cellEditor>  
-                            <f:facet name="output">  
-                                <h:outputText value="" />  
-                            </f:facet>  
-                            <f:facet name="input">  
-                                <h:selectOneMenu value="" >  
-                                    <f:selectItems value="" var="color" itemLabel="" itemValue="" />  
-                                </h:selectOneMenu>  
-                            </f:facet>  
-                        </p:cellEditor>  
+                    <p:column headerText="#{megs.proceededTo}" >  
+                                <h:outputText value="#{rowtable.proceededTo}" />  
                     </p:column> 
 
-                    <p:column headerText="#{megs.answerFromCustomer}" style="width:50px">  
-                        <p:cellEditor>  
-                            <f:facet name="output">  
-                                <h:outputText value="" />  
-                            </f:facet>  
-                            <f:facet name="input">  
-                                <p:inputText value="" style="width:100%" label=""/>  
-                            </f:facet>  
-                        </p:cellEditor>  
+                    <p:column headerText="#{megs.answerFromCustomer}" >  
+                                <h:outputText value="#{rowtable.answer}" />  
                     </p:column>
-
-                    <p:column headerText="Options" style="width:50px">  
-                        <p:rowEditor />  
-                    </p:column>  
 
                 </p:dataTable>  
             </p:fieldset>

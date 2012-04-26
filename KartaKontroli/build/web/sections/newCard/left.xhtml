@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head>
+        <title>IGNORED</title>
+    </head>
+    <body>
+         <ui:composition> 
+           
+                 <p:accordionPanel activeIndex="0" autoHeight="false" >
+                <p:tab title="Menu 1">
+                    <br />
+                    <p:calendar mode="inline" navigator="none" locale="#{user.locale}"/>
+                    <br />
+                </p:tab>
+
+                <p:tab title="Menu 2" disabled="folse">
+                    <h:outputText value="Menu 2 Content" />
+                </p:tab>
+
+                <p:tab title="Menu 3">
+                    <h:outputText value="Menu 3 Content" />
+                </p:tab>
+            </p:accordionPanel>
+          
+        </ui:composition>
+    </body>
+</html>

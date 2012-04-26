@@ -25,6 +25,27 @@ public class InputNewCard implements Serializable{
   private List<String>table;
   
     public InputNewCard() {
+        personaList.add("                    ");
+        personaList.add("Kowalski Jan");
+        personaList.add("Nowak Tomasz");
+        
+        customerList.add("                    ");
+        customerList.add("Druteks jan zoo");
+        customerList.add("KWP Frankowscy");
+        
+        orderedByList.add("                     ");
+        orderedByList.add("Niedzwiedz Józef");
+        orderedByList.add("Kowalski Mateusz");
+        
+        producerList.add("                 ");
+        producerList.add("Kopalnia kuznia");
+        producerList.add("Mechtech Gdańsk");
+        
+        requestedCertificates = new HashMap<String, String>();
+        requestedCertificates.put("battery tests", "battery tests");
+        requestedCertificates.put("origin", "origin");
+        requestedCertificates.put("conformity", "conformity");
+        requestedCertificates.put("quality", "quality");
     }
 
     public String getOrderNumber() {
@@ -44,9 +65,6 @@ public class InputNewCard implements Serializable{
     }
 
     public List<String> getPersonaList() {
-        personaList.add("                    ");
-        personaList.add("Kowalski Jan");
-        personaList.add("Nowak Tomasz");
         return personaList;
     }
 
@@ -63,9 +81,7 @@ public class InputNewCard implements Serializable{
     }
 
     public List<String> getCustomerList() {
-        customerList.add("                    ");
-        customerList.add("Druteks jan zoo");
-        customerList.add("KWP Frankowscy");
+        
         return customerList;
     }
 
@@ -82,9 +98,7 @@ public class InputNewCard implements Serializable{
     }
 
     public List<String> getOrderedByList() {
-        orderedByList.add("                     ");
-        orderedByList.add("Niedzwiedz Józef");
-        orderedByList.add("Kowalski Mateusz");
+        
         return orderedByList;
     }
 
@@ -101,9 +115,7 @@ public class InputNewCard implements Serializable{
     }
 
     public List<String> getProducerList() {
-        producerList.add("                 ");
-        producerList.add("Kopalnia kuznia");
-        producerList.add("Mechtech Gdańsk");
+        
         return producerList;
     }
 
@@ -137,11 +149,7 @@ public class InputNewCard implements Serializable{
     }
 
     public Map<String, String> getRequestedCertificates() {
-        requestedCertificates = new HashMap<String, String>();
-        requestedCertificates.put("battery tests", "battery tests");
-        requestedCertificates.put("origin", "origin");
-        requestedCertificates.put("conformity", "conformity");
-        requestedCertificates.put("quality", "quality");
+        
         return requestedCertificates;
     }
 

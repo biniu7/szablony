@@ -60,9 +60,16 @@
         <managed-bean-scope>session</managed-bean-scope>
         
     </managed-bean>
+   
     <managed-bean>
-        <managed-bean-name>patter</managed-bean-name>
-        <managed-bean-class>pl.biniu.PatterMBean</managed-bean-class>
+        <managed-bean-name>btable</managed-bean-name>
+        <managed-bean-class>pl.biniu.newCard.TableBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>control</managed-bean-name>
+        <managed-bean-class>pl.biniu.ControlBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 </faces-config>
